@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>עו"ד שרית פיליפסון</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --deep: #111a27;
+      --gold: #b89b5e;
+      --gold-light: #d4b87a;
+      --gold-muted: #8a7245;
+      --cream: #f5f0e8;
+      --cream-dark: #ede5d4;
+      --text: #2a2a2a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+      --border: rgba(184, 155, 94, 0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Assistant', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 100;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(245, 240, 232, 0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold-light); }
+
+    .nav-contact {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: var(--gold-light) !important;
+      padding: 7px 20px;
+      border-radius: 2px;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-contact:hover {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,155,94,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184,155,94,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-lines {
+      position: absolute;
+      top: 68px; bottom: 0; right: 0; left: 0;
+      background-image:
+        linear-gradient(rgba(184,155,94,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,155,94,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      padding: 80px 60px 80px 40px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-muted);
+      padding: 5px 14px;
+      margin-bottom: 28px;
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: rgba(245,240,232,0.65);
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 28px;
+    }
+
+    .hero-bio {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(245,240,232,0.75);
+      max-width: 520px;
+      margin-bottom: 44px;
+      font-weight: 300;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 13px 32px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      border-radius: 2px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      color: rgba(245,240,232,0.65);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--gold-muted);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .btn-secondary:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+    .hero-visual {
+      padding: 80px 40px 80px 60px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 40px;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.55);
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    .stat-sep {
+      grid-column: 1 / -1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── SECTION COMMON ── */
+    section {
+      padding: 100px 40px;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .section-title em { color: var(--gold-muted); font-style: italic; }
+
+    .section-line {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 44px;
+    }
+
+    /* ── STRENGTHS ── */
+    .strengths { background: var(--cream); }
+
+    .strength-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+
+    .strength-intro-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      font-weight: 300;
+    }
+
+    .strength-intro-quote {
+      border-right: 3px solid var(--gold);
+      padding-right: 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .pillar {
+      background: var(--cream);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .pillar:hover { background: var(--cream-dark); }
+
+    .pillar-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(184,155,94,0.15);
+      position: absolute;
+      top: 20px;
+      left: 28px;
+      line-height: 1;
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--gold-muted);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .pillar-text {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-weight: 300;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--navy); }
+    .services .section-title { color: var(--white); }
+    .services .section-tag { color: rgba(184,155,94,0.7); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(184,155,94,0.12);
+      margin-top: 0;
+    }
+
+    .service-card {
+      background: var(--deep);
+      padding: 44px 40px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .service-card:hover {
+      border-bottom-color: var(--gold);
+      background: rgba(184,155,94,0.05);
+    }
+
+    .service-icon {
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.6);
+      font-weight: 300;
+    }
+
+    /* ── EXPERIENCE TIMELINE ── */
+    .experience { background: var(--cream-dark); }
+
+    .timeline {
+      position: relative;
+      padding-right: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(184,155,94,0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-right: 48px;
+      padding-bottom: 44px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream-dark);
+    }
+
+    .timeline-year {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: var(--gold-muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .timeline-role {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .timeline-place {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-weight: 300;
+    }
+
+    .exp-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    /* ── CONTACT BAR ── */
+    .contact-bar {
+      background: var(--gold);
+      padding: 50px 40px;
+    }
+
+    .contact-bar .section-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .contact-bar-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .contact-bar-details {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-detail-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(13,27,42,0.65);
+    }
+
+    .contact-detail-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .contact-detail-value:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 32px 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content > * {
+      animation: fadeUp 0.7s ease both;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.35s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(6) { animation-delay: 0.5s; }
+    .hero-visual { animation: fadeUp 0.9s ease 0.4s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero-content { padding: 60px 24px; }
+      .strength-intro { grid-template-columns: 1fr; }
+      .pillars { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .exp-layout { grid-template-columns: 1fr; }
+      .contact-bar .section-inner { flex-direction: column; text-align: center; }
+      .contact-bar-details { flex-direction: column; gap: 20px; }
+      nav { padding: 0 20px; }
+      .nav-links { gap: 18px; }
+      section { padding: 70px 24px; }
+      .footer-inner { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">שרית פיליפסון | עו"ד</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">ראשי</a></li>
+      <li><a href="headlines.html">כותרות &amp; תקשורת</a></li>
+      <li><a href="mailto:saritip1@gmail.com" class="nav-contact">צרו קשר</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lines"></div>
+    <div class="hero-content">
+      <span class="hero-tag">עורכת דין &amp; ניצב משנה בדימוס</span>
+      <h1 class="hero-title">שרית<br /><span>פיליפסון</span></h1>
+      <p class="hero-subtitle">Sarit Philipson, Adv.</p>
+      <div class="hero-divider"></div>
+      <p class="hero-bio">
+        למעלה מ-27 שנים של ניסיון בשירות משטרת ישראל בדרגת ניצב משנה, לצד כ-30 שנה של עריכת דין פעילה בתחומי הפלילי, התעבורה, הנוער וייצוג שוטרים. ניסיון ייחודי המשלב הבנה מבפנים של מערכות האכיפה עם עוצמה משפטית בבית המשפט.
+      </p>
+      <div class="hero-cta-group">
+        <a href="mailto:saritip1@gmail.com" class="btn-primary">לפגישת ייעוץ</a>
+        <a href="headlines.html" class="btn-secondary">כותרות בתקשורת &larr;</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="stat-grid">
+          <div class="stat-item">
+            <div class="stat-number">30+</div>
+            <div class="stat-label">שנות ניסיון<br />בעריכת דין</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">27</div>
+            <div class="stat-label">שנים בשירות<br />משטרת ישראל</div>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">עורכי דין<br />בפיקודה</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3</div>
+            <div class="stat-label">תארים<br />אקדמיים</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section class="strengths">
+    <div class="section-inner">
+      <span class="section-tag">היתרון שלי</span>
+      <h2 class="section-title">ניסיון <em>שני-צדדי</em> — מהשטח ועד אולם בית המשפט</h2>
+      <div class="section-line"></div>
+
+      <div class="strength-intro">
+        <div class="strength-intro-text">
+          עו"ד שרית פיליפסון עוסקת בתחומי הפלילי, התעבורה, הנוער, ייצוג שוטרים וכוחות הביטחון במשמעת, ייעוץ משפטי וקידום חקיקה בתחומי אכיפה, תנועה ומשטרה.
+          <br /><br />
+          שנות ניסיונה כניצב משנה ובתפקידים פיקודיים בכירים במשטרה מעניקות לה פרספקטיבה שאחרים פשוט אינם מחזיקים — הבנת מנגנוני החקירה, מערכות התביעה ותהליכי קבלת ההחלטות מבפנים.
+        </div>
+        <blockquote class="strength-intro-quote">
+          "הכרות עמוקה עם מערכת האכיפה — מהצד שמולך — היא הכלי החזק ביותר בידי הסניגור."
+        </blockquote>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-number">01</div>
+          <div class="pillar-icon">⚖</div>
+          <div class="pillar-title">30 שנה כעורכת דין</div>
+          <p class="pillar-text">חברה פעילה בלשכת עורכי הדין מ-1998, עם התמחות עמוקה בדיני פלילי, תעבורה, נוער וייצוג שוטרים. ניסיון עשיר בניהול הליכים בבתי משפט שלום, תעבורה ובית משפט לנוער.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">02</div>
+          <div class="pillar-icon">🎖</div>
+          <div class="pillar-title">ניצב משנה בדימוס</div>
+          <p class="pillar-text">27 שנות שירות במשטרת ישראל בתפקידים מפתח: ר' מחלקת תביעות תעבורה ארצית, קצינת קבילות, דוברת מפכ"ל ועוד. הבנה מערכתית שאין לה תחליף.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">03</div>
+          <div class="pillar-icon">📋</div>
+          <div class="pillar-title">ניהול מחלקות ועצב חקיקה</div>
+          <p class="pillar-text">הקמת והובלת מחלקת תביעות תעבורה ארצית עם למעלה מ-200 עורכי דין וקצינים, קידום חקיקה מצילת חיים, עבודה עם הכנסת ומשרדי ממשלה.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">04</div>
+          <div class="pillar-icon">🎓</div>
+          <div class="pillar-title">השכלה אקדמית מקיפה</div>
+          <p class="pillar-text">תואר ראשון ושני במשפטים (בר-אילן), תואר שני במדיניות ציבורית (האוניברסיטה העברית). מגשרת מוסמכת, מוסמכת דירקטורים.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">05</div>
+          <div class="pillar-icon">📢</div>
+          <div class="pillar-title">מומחיות בדוברות וניהול משברים</div>
+          <p class="pillar-text">שנים רבות כדוברת מפכ"ל, דוברת משמר הגבול ומחוז דרום. התמחות בניהול משברים של בכירים, אסטרטגיה תקשורתית והסברה ארגונית וחוץ-ארגונית.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-number">06</div>
+          <div class="pillar-icon">🤝</div>
+          <div class="pillar-title">שותפויות חברתיות ומנטורינג</div>
+          <p class="pillar-text">הובלת תכניות לאומיות לשילוב צעירים מהחברה הערבית והבדווית. מנטורית לוחמים ועמותת "גב ללוחם". מרצה בתחומי נהיגה בטוחה ומניעת פשיעה.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="section-inner">
+      <span class="section-tag">תחומי עיסוק</span>
+      <h2 class="section-title" style="color:var(--white);">שירותים <em style="color:var(--gold-muted)">משפטיים</em></h2>
+      <div class="section-line"></div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">🚔</span>
+          <div class="service-name">משפט פלילי</div>
+          <p class="service-desc">ייצוג נאשמים בהליכים פליליים, ניהול הגנה בבתי משפט שלום ומחוזי, ליווי בחקירות משטרה וביקורת על החלטות תביעה.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🚗</span>
+          <div class="service-name">דיני תעבורה</div>
+          <p class="service-desc">ייצוג בתיקי תעבורה חמורים, נהיגה בשכרות, שלילת רישיון, תאונות דרכים ועבירות מסוכנות. ניסיון ייחודי בהובלת מחלקת תביעות תעבורה ארצית.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">👮</span>
+          <div class="service-name">ייצוג שוטרים וכוחות ביטחון</div>
+          <p class="service-desc">ייצוג שוטרים, סוהרים וכוחות ביטחון בהליכי משמעת פנים-ארגוניים, תלונות, קבילות וחקירות. הבנה עמוקה מניסיון פנימי של 27 שנה.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🧒</span>
+          <div class="service-name">משפט נוער</div>
+          <p class="service-desc">ייצוג קטינים בהליכים פליליים, עבודה עם בית משפט לנוער, ליווי משפחות וקטינים תוך גישה רגישה ומונחית-שיקום.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">📜</span>
+          <div class="service-name">ייעוץ וקידום חקיקה</div>
+          <p class="service-desc">ייעוץ משפטי לגופים וארגונים בתחומי אכיפה ותנועה, קידום חקיקה, ממשקי עבודה עם הכנסת ומשרדי ממשלה ולשכת עורכי הדין.</p>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🎤</span>
+          <div class="service-name">ניהול משברים ואסטרטגיה תקשורתית</div>
+          <p class="service-desc">ניהול משברים תקשורתיים לבכירים ולארגונים, אסטרטגיה תקשורתית, הסברה ארגונית וחוץ-ארגונית, הכנה לראיונות ומצגות תקשורתיות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="section-inner">
+      <span class="section-tag">ניסיון מקצועי</span>
+      <h2 class="section-title">נקודות <em>ציון</em> בקריירה</h2>
+      <div class="section-line"></div>
+
+      <div class="exp-layout">
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">2022 – 2025</span>
+            <div class="timeline-role">ראש מחלקת שותפויות, הדרכה ותודעה</div>
+            <div class="timeline-place">אגף סי"ף, משטרת ישראל | נצ"מ</div>
+            <p class="timeline-desc">הובלת שיתופי פעולה עם החברה הערבית, ניהול צוותים רב-תחומיים ותכניות לאומיות לשילוב צעירים מהחברה הערבית והבדווית במשטרה ובמערכות הביטחון.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2019 – 2022</span>
+            <div class="timeline-role">פרויקטורית אגף המבצעים</div>
+            <div class="timeline-place">מנהלת אכיפת קורונה, משטרת ישראל</div>
+            <p class="timeline-desc">הקמת משלט טכנולוגי לאומי בזמן חירום, הרחבת סמכויות פקחים, שיתוף פעולה עם משרדי ממשלה ומערכות בריאות.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2014 – 2019</span>
+            <div class="timeline-role">ראש מחלקת תביעות תעבורה ארצית</div>
+            <div class="timeline-place">משטרת ישראל | נצ"מ</div>
+            <p class="timeline-desc">הקמת מחלקה ארצית חדשה, ניהול למעלה מ-200 עורכי דין וקצינים, קידום חקיקה מצילת חיים וניהול ממשקים עם הכנסת ומשרדי ממשלה.</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">2011 – 2012</span>
+            <div class="timeline-role">רמ"ד דוברות ודוברת מפכ"ל המשטרה</div>
+            <div class="timeline-place">חטיבת הדוברות, משטרת ישראל</div>
+            <p class="timeline-desc">בניית תשתית חטיבת הדוברות החדשה, פיקוד על דוברי המחוזות, ניהול קשרי תקשורת ורשתות חברתיות.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2008 – 2011</span>
+            <div class="timeline-role">דוברת מחוז דרום</div>
+            <div class="timeline-place">משטרת ישראל | סנ"צ</div>
+            <p class="timeline-desc">הובלת מערך דוברות המחוז, כולל ניהול תקשורת בשגרה, חירום ומבצעים צבאיים.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2005 – 2007</span>
+            <div class="timeline-role">דוברת משמר הגבול ויועמ"שית מפקד מג"ב</div>
+            <div class="timeline-place">משמר הגבול | רפ"ק</div>
+            <p class="timeline-desc">ניהול דוברות מג"ב ארצית בשגרה ובחירום, כולל פינוי יישובי השומרון ועמונה ומלחמת לבנון השנייה.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1998 – 2005</span>
+            <div class="timeline-role">תובעת משטרתית</div>
+            <div class="timeline-place">תנועה / נוער / פלילי | פקד</div>
+            <p class="timeline-desc">ייצוג המדינה בבתי משפט, ניהול הליכים פליליים בבתי משפט שלום, תעבורה ובית משפט לנוער.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT BAR -->
+  <div class="contact-bar">
+    <div class="section-inner">
+      <p class="contact-bar-text">פנו אלינו לייעוץ ראשוני</p>
+      <div class="contact-bar-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">טלפון</span>
+          <a href="tel:0506274359" class="contact-detail-value">050-627-4359</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">דואר אלקטרוני</span>
+          <a href="mailto:saritip1@gmail.com" class="contact-detail-value">saritip1@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">מיקום</span>
+          <span class="contact-detail-value">כפר אדומים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">שרית פיליפסון | עו"ד</div>
+      <div class="footer-links">
+        <a href="index.html">ראשי</a>
+        <a href="headlines.html">כותרות</a>
+        <a href="mailto:saritip1@gmail.com">צרו קשר</a>
+      </div>
+      <p class="footer-copy">© כל הזכויות שמורות לעו"ד שרית פיליפסון</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>כותרות ותקשורת | עו"ד שרית פיליפסון</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1b2a;
+      --deep: #111a27;
+      --gold: #b89b5e;
+      --gold-light: #d4b87a;
+      --gold-muted: #8a7245;
+      --cream: #f5f0e8;
+      --cream-dark: #ede5d4;
+      --text: #2a2a2a;
+      --text-light: #5a5a5a;
+      --white: #ffffff;
+      --border: rgba(184, 155, 94, 0.25);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Assistant', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; right: 0; left: 0;
+      z-index: 100;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(245, 240, 232, 0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold-light); }
+
+    .nav-contact {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: var(--gold-light) !important;
+      padding: 7px 20px;
+      border-radius: 2px;
+      transition: background 0.25s, color 0.25s !important;
+    }
+    .nav-contact:hover {
+      background: var(--gold) !important;
+      color: var(--navy) !important;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--navy);
+      padding: 140px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 90% at 70% 50%, rgba(184,155,94,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .page-header-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,155,94,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,155,94,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .page-header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .breadcrumb {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 20px;
+      letter-spacing: 0.08em;
+    }
+
+    .breadcrumb a {
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumb a:hover { color: var(--gold-light); }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 4vw, 3.5rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .page-title em { color: var(--gold-light); font-style: italic; }
+
+    .page-subtitle {
+      font-size: 1rem;
+      color: rgba(245,240,232,0.6);
+      font-weight: 300;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    .page-divider {
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      margin: 24px 0;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--deep);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+
+    .filter-btn {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 18px 24px;
+      font-family: 'Assistant', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(245,240,232,0.5);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .filter-btn:hover { color: rgba(245,240,232,0.8); }
+    .filter-btn.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 72px 40px 100px;
+    }
+
+    /* ── FEATURED ARTICLE ── */
+    .featured {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      min-height: 280px;
+      transition: border-color 0.3s;
+    }
+    .featured:hover { border-color: var(--gold-muted); }
+
+    .featured-label-col {
+      background: var(--gold);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(13,27,42,0.6);
+      margin-bottom: 12px;
+    }
+
+    .featured-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      opacity: 0.15;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      padding: 5px 12px;
+      border-radius: 2px;
+      margin-top: 16px;
+    }
+
+    .featured-body {
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-meta {
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.4);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .featured-meta-sep { opacity: 0.4; }
+
+    .featured-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .featured-excerpt {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.55);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .article-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .article-link:hover { border-bottom-color: var(--gold); }
+    .article-link-placeholder {
+      color: rgba(245,240,232,0.3) !important;
+      cursor: default;
+    }
+    .article-link-placeholder:hover { border-bottom-color: transparent !important; }
+
+    /* ── SECTION HEADING ── */
+    .headlines-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .headlines-subheading {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    /* ── ARTICLE GRID ── */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .article-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 3px;
+      padding: 28px 24px 24px;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .article-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(13,27,42,0.1);
+      border-color: var(--gold-muted);
+    }
+
+    .article-source {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-muted);
+      font-weight: 600;
+    }
+
+    .article-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.45;
+      flex: 1;
+    }
+
+    .article-date {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    .article-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--gold-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 4px;
+      transition: color 0.2s;
+    }
+    .article-card-link:hover { color: var(--gold); }
+
+    .placeholder-badge {
+      display: inline-block;
+      background: rgba(184,155,94,0.1);
+      color: var(--gold-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 2px;
+    }
+
+    /* ── TOPICS SECTION ── */
+    .topics-section {
+      background: var(--navy);
+      border-radius: 4px;
+      padding: 50px 44px;
+      margin-bottom: 60px;
+    }
+
+    .topics-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .topic-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 2px;
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.65);
+      text-align: center;
+      cursor: default;
+      transition: background 0.2s, color 0.2s;
+    }
+    .topic-chip:hover {
+      background: rgba(184,155,94,0.1);
+      color: var(--gold-light);
+    }
+
+    /* ── CALL OUT ── */
+    .callout {
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--gold);
+      background: rgba(184,155,94,0.04);
+      padding: 32px 36px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .callout-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .callout-text strong {
+      font-style: normal;
+      color: var(--gold-muted);
+      font-family: 'Assistant', sans-serif;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 4px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── CONTACT BAR ── */
+    .contact-bar {
+      background: var(--gold);
+      padding: 50px 40px;
+    }
+
+    .contact-bar .inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .contact-bar-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+    .contact-bar-details {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact-detail-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: rgba(13,27,42,0.6);
+    }
+
+    .contact-detail-value {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .contact-detail-value:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 32px 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: rgba(245,240,232,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header-inner { animation: fadeUp 0.6s ease 0.1s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .page-header { padding: 120px 24px 60px; }
+      .featured { grid-template-columns: 1fr; }
+      .featured-label-col { padding: 28px 24px; }
+      .featured-number { font-size: 3rem; }
+      .articles-grid { grid-template-columns: 1fr; }
+      .topics-grid { grid-template-columns: repeat(2, 1fr); }
+      .content { padding: 50px 24px 80px; }
+      nav { padding: 0 20px; }
+      .nav-links { gap: 18px; }
+      .contact-bar .inner { flex-direction: column; text-align: center; }
+      .contact-bar-details { flex-direction: column; gap: 16px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">שרית פיליפסון | עו"ד</a>
+    <ul class="nav-links">
+      <li><a href="index.html">ראשי</a></li>
+      <li><a href="headlines.html" class="active">כותרות &amp; תקשורת</a></li>
+      <li><a href="mailto:saritip1@gmail.com" class="nav-contact">צרו קשר</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-grid"></div>
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="index.html">ראשי</a> &nbsp;/&nbsp; כותרות ותקשורת
+      </div>
+      <h1 class="page-title">כותרות &amp; <em>תקשורת</em></h1>
+      <div class="page-divider"></div>
+      <p class="page-subtitle">
+        ראיונות, כתבות וציטוטים של עו"ד שרית פיליפסון בכלי התקשורת המובילים — בנושאי אכיפה, פלילי, תעבורה וניהול משברים.
+      </p>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn active">הכל</button>
+    <button class="filter-btn">כלי תקשורת</button>
+    <button class="filter-btn">ראיונות</button>
+    <button class="filter-btn">מאמרים</button>
+    <button class="filter-btn">כנסים</button>
+    <button class="filter-btn">פרסומים</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- FEATURED -->
+    <div class="featured">
+      <div class="featured-label-col">
+        <div class="featured-tag">כתבה מומלצת</div>
+        <div class="featured-number">01</div>
+        <span class="featured-badge">ראיון בולט</span>
+      </div>
+      <div class="featured-body">
+        <div class="featured-meta">
+          <span>כלי תקשורת</span>
+          <span class="featured-meta-sep">·</span>
+          <span>קישור בהמתנה</span>
+        </div>
+        <h2 class="featured-title">כותרת הכתבה הבולטת תתווסף כאן</h2>
+        <p class="featured-excerpt">
+          תיאור קצר של הכתבה יופיע כאן. ניתן להוסיף ציטוט קצר או תקציר של הנושא המרכזי שעליו נדונה שרית פיליפסון בראיון זה.
+        </p>
+        <a href="#" class="article-link article-link-placeholder">קישור יתווסף בקרוב ←</a>
+      </div>
+    </div>
+
+    <!-- ARTICLES SECTION -->
+    <div class="headlines-heading">כתבות ופרסומים</div>
+    <p class="headlines-subheading">קישורים לכלי תקשורת יתווספו בקרוב</p>
+
+    <div class="articles-grid">
+
+      <!-- Article 1 -->
+      <div class="article-card">
+        <div class="article-source">ערוץ 12 / כאן</div>
+        <div class="article-headline">כותרת הכתבה הראשונה תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="article-card">
+        <div class="article-source">ynet / וואלה</div>
+        <div class="article-headline">כותרת הכתבה השנייה תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="article-card">
+        <div class="article-source">ישראל היום / מעריב</div>
+        <div class="article-headline">כותרת הכתבה השלישית תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article-card">
+        <div class="article-source">גלובס / כלכליסט</div>
+        <div class="article-headline">כותרת הכתבה הרביעית תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="article-card">
+        <div class="article-source">גלי צה"ל / רדיו</div>
+        <div class="article-headline">כותרת הכתבה החמישית תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="article-card">
+        <div class="article-source">הארץ / TheMarker</div>
+        <div class="article-headline">כותרת הכתבה השישית תופיע כאן לאחר הוספת הקישור</div>
+        <div class="article-date">תאריך הכתבה</div>
+        <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
+        <span class="placeholder-badge">ממתין לקישור</span>
+      </div>
+
+    </div>
+
+    <!-- TOPICS -->
+    <div class="topics-section">
+      <div class="topics-title">נושאים מרכזיים בכיסוי התקשורתי</div>
+      <div class="topics-grid">
+        <div class="topic-chip">אכיפת תנועה ותעבורה</div>
+        <div class="topic-chip">ייצוג שוטרים במשמעת</div>
+        <div class="topic-chip">ניהול משברים</div>
+        <div class="topic-chip">חקיקה בטיחות בדרכים</div>
+        <div class="topic-chip">פשיעת נוער</div>
+        <div class="topic-chip">אסטרטגיה תקשורתית</div>
+        <div class="topic-chip">שילוב מיעוטים בביטחון</div>
+        <div class="topic-chip">אכיפת קורונה</div>
+      </div>
+    </div>
+
+    <!-- CALLOUT -->
+    <div class="callout">
+      <div class="callout-icon">📬</div>
+      <div class="callout-text">
+        <strong>בקשות תקשורת</strong>
+        לפניות מכלי תקשורת לתגובות, ראיונות ומאמרי דעה — ניתן ליצור קשר ישירות בטלפון <a href="tel:0506274359" style="color:var(--gold-muted);text-decoration:none;">050-627-4359</a> או במייל <a href="mailto:saritip1@gmail.com" style="color:var(--gold-muted);text-decoration:none;">saritip1@gmail.com</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONTACT BAR -->
+  <div class="contact-bar">
+    <div class="inner">
+      <p class="contact-bar-text">פנו אלינו לייעוץ ראשוני</p>
+      <div class="contact-bar-details">
+        <div class="contact-detail">
+          <span class="contact-detail-label">טלפון</span>
+          <a href="tel:0506274359" class="contact-detail-value">050-627-4359</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">דואר אלקטרוני</span>
+          <a href="mailto:saritip1@gmail.com" class="contact-detail-value">saritip1@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">מיקום</span>
+          <span class="contact-detail-value">כפר אדומים</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">שרית פיליפסון | עו"ד</div>
+      <div class="footer-links">
+        <a href="index.html">ראשי</a>
+        <a href="headlines.html">כותרות</a>
+        <a href="mailto:saritip1@gmail.com">צרו קשר</a>
+      </div>
+      <p class="footer-copy">© כל הזכויות שמורות לעו"ד שרית פיליפסון</p>
+    </div>
+  </footer>
+
+</body>
+</html>
