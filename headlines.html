@@ -38,7 +38,7 @@
       position: fixed;
       top: 0; right: 0; left: 0;
       z-index: 100;
-      background: rgba(13, 27, 42, 0.96);
+      background: rgba(13, 27, 42, 0.97);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       padding: 0 40px;
@@ -85,6 +85,59 @@
     .nav-contact:hover {
       background: var(--gold) !important;
       color: var(--navy) !important;
+    }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--gold-light);
+      transition: transform 0.3s, opacity 0.3s;
+      border-radius: 1px;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; right: 0; left: 0;
+      background: rgba(13, 27, 42, 0.99);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 24px 28px;
+      gap: 4px;
+      z-index: 99;
+    }
+    .nav-mobile-menu.open { display: flex; }
+    .nav-mobile-menu a {
+      color: rgba(245,240,232,0.8);
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(184,155,94,0.1);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-mobile-menu a:hover { color: var(--gold-light); }
+    .nav-mobile-menu a.nav-contact {
+      margin-top: 12px;
+      border: 1px solid var(--gold-muted);
+      padding: 10px 20px;
+      text-align: center;
+      border-radius: 2px;
+      color: var(--gold-light);
     }
 
     /* ── PAGE HEADER ── */
@@ -555,11 +608,14 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .page-header-inner { animation: fadeUp 0.6s ease 0.1s both; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
       .page-header { padding: 120px 24px 60px; }
       .featured { grid-template-columns: 1fr; }
       .featured-label-col { padding: 28px 24px; }
@@ -567,8 +623,6 @@
       .articles-grid { grid-template-columns: 1fr; }
       .topics-grid { grid-template-columns: repeat(2, 1fr); }
       .content { padding: 50px 24px 80px; }
-      nav { padding: 0 20px; }
-      .nav-links { gap: 18px; }
       .contact-bar .inner { flex-direction: column; text-align: center; }
       .contact-bar-details { flex-direction: column; gap: 16px; }
       .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
@@ -582,10 +636,18 @@
     <a href="index.html" class="nav-logo">שרית פיליפסון | עו"ד</a>
     <ul class="nav-links">
       <li><a href="index.html">ראשי</a></li>
-      <li><a href="headlines.html" class="active">כותרות &amp; תקשורת</a></li>
       <li><a href="mailto:saritip1@gmail.com" class="nav-contact">צרו קשר</a></li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="תפריט" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile-menu" id="mobileMenu">
+    <a href="index.html">ראשי</a>
+    <a href="mailto:saritip1@gmail.com" class="nav-contact">צרו קשר</a>
+  </div>
 
   <!-- PAGE HEADER -->
   <div class="page-header">
@@ -641,8 +703,6 @@
     <p class="headlines-subheading">קישורים לכלי תקשורת יתווספו בקרוב</p>
 
     <div class="articles-grid">
-
-      <!-- Article 1 -->
       <div class="article-card">
         <div class="article-source">ערוץ 12 / כאן</div>
         <div class="article-headline">כותרת הכתבה הראשונה תופיע כאן לאחר הוספת הקישור</div>
@@ -650,8 +710,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
-      <!-- Article 2 -->
       <div class="article-card">
         <div class="article-source">ynet / וואלה</div>
         <div class="article-headline">כותרת הכתבה השנייה תופיע כאן לאחר הוספת הקישור</div>
@@ -659,8 +717,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
-      <!-- Article 3 -->
       <div class="article-card">
         <div class="article-source">ישראל היום / מעריב</div>
         <div class="article-headline">כותרת הכתבה השלישית תופיע כאן לאחר הוספת הקישור</div>
@@ -668,8 +724,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
-      <!-- Article 4 -->
       <div class="article-card">
         <div class="article-source">גלובס / כלכליסט</div>
         <div class="article-headline">כותרת הכתבה הרביעית תופיע כאן לאחר הוספת הקישור</div>
@@ -677,8 +731,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
-      <!-- Article 5 -->
       <div class="article-card">
         <div class="article-source">גלי צה"ל / רדיו</div>
         <div class="article-headline">כותרת הכתבה החמישית תופיע כאן לאחר הוספת הקישור</div>
@@ -686,8 +738,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
-      <!-- Article 6 -->
       <div class="article-card">
         <div class="article-source">הארץ / TheMarker</div>
         <div class="article-headline">כותרת הכתבה השישית תופיע כאן לאחר הוספת הקישור</div>
@@ -695,7 +745,6 @@
         <a href="#" class="article-card-link article-link-placeholder">קישור בהמתנה ←</a>
         <span class="placeholder-badge">ממתין לקישור</span>
       </div>
-
     </div>
 
     <!-- TOPICS -->
@@ -751,12 +800,20 @@
       <div class="footer-logo">שרית פיליפסון | עו"ד</div>
       <div class="footer-links">
         <a href="index.html">ראשי</a>
-        <a href="headlines.html">כותרות</a>
         <a href="mailto:saritip1@gmail.com">צרו קשר</a>
       </div>
       <p class="footer-copy">© כל הזכויות שמורות לעו"ד שרית פיליפסון</p>
     </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('hamburger');
+      menu.classList.toggle('open');
+      btn.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
