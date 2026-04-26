@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>עו"ד שרית פיליפסון</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Assistant:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
   <style>
     :root {
       --navy: #0d1b2a;
@@ -22,8 +25,17 @@
       --border: rgba(184, 155, 94, 0.25);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Assistant', sans-serif;
@@ -36,7 +48,9 @@
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0; right: 0; left: 0;
+      top: 0;
+      right: 0;
+      left: 0;
       z-index: 100;
       background: rgba(13, 27, 42, 0.97);
       backdrop-filter: blur(12px);
@@ -72,8 +86,11 @@
       letter-spacing: 0.04em;
       transition: color 0.25s;
     }
+
     .nav-links a:hover,
-    .nav-links a.active { color: var(--gold-light); }
+    .nav-links a.active {
+      color: var(--gold-light);
+    }
 
     .nav-contact {
       background: transparent;
@@ -83,6 +100,7 @@
       border-radius: 2px;
       transition: background 0.25s, color 0.25s !important;
     }
+
     .nav-contact:hover {
       background: var(--gold) !important;
       color: var(--navy) !important;
@@ -98,6 +116,7 @@
       border: none;
       padding: 4px;
     }
+
     .nav-hamburger span {
       display: block;
       width: 24px;
@@ -106,14 +125,25 @@
       transition: transform 0.3s, opacity 0.3s;
       border-radius: 1px;
     }
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     .nav-mobile-menu {
       display: none;
       position: fixed;
-      top: 68px; right: 0; left: 0;
+      top: 68px;
+      right: 0;
+      left: 0;
       background: rgba(13, 27, 42, 0.99);
       border-bottom: 1px solid var(--border);
       flex-direction: column;
@@ -121,17 +151,25 @@
       gap: 4px;
       z-index: 99;
     }
-    .nav-mobile-menu.open { display: flex; }
+
+    .nav-mobile-menu.open {
+      display: flex;
+    }
+
     .nav-mobile-menu a {
-      color: rgba(245,240,232,0.8);
+      color: rgba(245, 240, 232, 0.8);
       text-decoration: none;
       font-size: 1rem;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(184,155,94,0.1);
+      border-bottom: 1px solid rgba(184, 155, 94, 0.1);
       letter-spacing: 0.04em;
       transition: color 0.2s;
     }
-    .nav-mobile-menu a:hover { color: var(--gold-light); }
+
+    .nav-mobile-menu a:hover {
+      color: var(--gold-light);
+    }
+
     .nav-mobile-menu a.nav-contact {
       margin-top: 12px;
       border: 1px solid var(--gold-muted);
@@ -158,17 +196,20 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184,155,94,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184,155,94,0.04) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(184, 155, 94, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(184, 155, 94, 0.04) 0%, transparent 60%);
       pointer-events: none;
     }
 
     .hero-lines {
       position: absolute;
-      top: 68px; bottom: 0; right: 0; left: 0;
+      top: 68px;
+      bottom: 0;
+      right: 0;
+      left: 0;
       background-image:
-        linear-gradient(rgba(184,155,94,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(184,155,94,0.04) 1px, transparent 1px);
+        linear-gradient(rgba(184, 155, 94, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184, 155, 94, 0.04) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
     }
@@ -197,7 +238,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.25rem;
       font-weight: 300;
-      color: rgba(245,240,232,0.65);
+      color: rgba(245, 240, 232, 0.65);
       margin-bottom: 32px;
       font-style: italic;
     }
@@ -212,7 +253,7 @@
     .hero-bio {
       font-size: 1rem;
       line-height: 1.85;
-      color: rgba(245,240,232,0.75);
+      color: rgba(245, 240, 232, 0.75);
       max-width: 520px;
       margin-bottom: 44px;
       font-weight: 300;
@@ -240,11 +281,15 @@
       border: none;
       font-family: 'Assistant', sans-serif;
     }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
 
     .btn-secondary {
       display: inline-block;
-      color: rgba(245,240,232,0.65);
+      color: rgba(245, 240, 232, 0.65);
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 400;
@@ -253,7 +298,11 @@
       padding-bottom: 2px;
       transition: color 0.25s, border-color 0.25s;
     }
-    .btn-secondary:hover { color: var(--gold-light); border-color: var(--gold-light); }
+
+    .btn-secondary:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
 
     /* ── HERO VISUAL ── */
     .hero-visual {
@@ -274,13 +323,14 @@
     }
 
     .info-box {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: 4px;
       padding: 32px 36px;
     }
 
     .info-box-label {
+      font-weight: 500;
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -307,7 +357,7 @@
 
     .info-box-list li {
       font-size: 0.82rem;
-      color: rgba(245,240,232,0.65);
+      color: rgba(245, 240, 232, 0.65);
       font-weight: 300;
       padding-right: 14px;
       position: relative;
@@ -360,7 +410,7 @@
 
     .police-text-sub {
       font-size: 0.75rem;
-      color: rgba(245,240,232,0.4);
+      color: rgba(245, 240, 232, 0.4);
       font-weight: 300;
     }
 
@@ -378,6 +428,7 @@
       pointer-events: none;
       transition: opacity 0.3s;
     }
+
     .modal-overlay.open {
       opacity: 1;
       pointer-events: all;
@@ -393,7 +444,10 @@
       transform: translateY(24px);
       transition: transform 0.3s;
     }
-    .modal-overlay.open .modal { transform: translateY(0); }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0);
+    }
 
     .modal-close {
       position: absolute;
@@ -407,7 +461,10 @@
       line-height: 1;
       transition: color 0.2s;
     }
-    .modal-close:hover { color: var(--navy); }
+
+    .modal-close:hover {
+      color: var(--navy);
+    }
 
     .modal-title {
       font-family: 'Cormorant Garamond', serif;
@@ -435,20 +492,27 @@
       align-items: center;
       gap: 16px;
       padding: 18px 20px;
-      border: 1px solid rgba(184,155,94,0.3);
+      border: 1px solid rgba(184, 155, 94, 0.3);
       border-radius: 3px;
       text-decoration: none;
       transition: background 0.2s, border-color 0.2s, transform 0.15s;
       background: white;
     }
+
     .modal-option:hover {
       background: var(--navy);
       border-color: var(--navy);
       transform: translateY(-1px);
     }
+
     .modal-option:hover .modal-opt-label,
-    .modal-option:hover .modal-opt-value { color: var(--white); }
-    .modal-option:hover .modal-opt-icon { color: var(--gold-light); }
+    .modal-option:hover .modal-opt-value {
+      color: var(--white);
+    }
+
+    .modal-option:hover .modal-opt-icon {
+      color: var(--gold-light);
+    }
 
     .modal-opt-icon {
       font-size: 1.4rem;
@@ -501,7 +565,10 @@
       margin-bottom: 18px;
     }
 
-    .section-title em { color: var(--gold-muted); font-style: italic; }
+    .section-title em {
+      color: var(--gold-muted);
+      font-style: italic;
+    }
 
     .section-line {
       width: 50px;
@@ -511,15 +578,23 @@
     }
 
     /* ── SERVICES ── */
-    .services { background: var(--navy); }
-    .services .section-title { color: var(--white); }
-    .services .section-tag { color: rgba(184,155,94,0.7); }
+    .services {
+      background: var(--navy);
+    }
+
+    .services .section-title {
+      color: var(--white);
+    }
+
+    .services .section-tag {
+      color: rgba(184, 155, 94, 0.7);
+    }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(184,155,94,0.12);
+      background: rgba(184, 155, 94, 0.12);
     }
 
     .service-card {
@@ -528,9 +603,10 @@
       border-bottom: 2px solid transparent;
       transition: border-color 0.3s, background 0.3s;
     }
+
     .service-card:hover {
       border-bottom-color: var(--gold);
-      background: rgba(184,155,94,0.05);
+      background: rgba(184, 155, 94, 0.05);
     }
 
     .service-icon {
@@ -550,12 +626,14 @@
     .service-desc {
       font-size: 0.88rem;
       line-height: 1.8;
-      color: rgba(245,240,232,0.6);
+      color: rgba(245, 240, 232, 0.6);
       font-weight: 300;
     }
 
     /* ── STRENGTHS ── */
-    .strengths { background: var(--cream); }
+    .strengths {
+      background: var(--cream);
+    }
 
     .strength-intro {
       display: grid;
@@ -596,13 +674,16 @@
       position: relative;
       transition: background 0.3s;
     }
-    .pillar:hover { background: var(--cream-dark); }
+
+    .pillar:hover {
+      background: var(--cream-dark);
+    }
 
     .pillar-number {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3.5rem;
       font-weight: 300;
-      color: rgba(184,155,94,0.15);
+      color: rgba(184, 155, 94, 0.15);
       position: absolute;
       top: 20px;
       left: 28px;
@@ -672,7 +753,7 @@
     .contact-detail-label {
       font-size: 0.7rem;
       letter-spacing: 0.15em;
-      color: rgba(13,27,42,0.65);
+      color: rgba(13, 27, 42, 0.65);
     }
 
     .contact-detail-value {
@@ -681,7 +762,10 @@
       color: var(--navy);
       text-decoration: none;
     }
-    .contact-detail-value:hover { text-decoration: underline; }
+
+    .contact-detail-value:hover {
+      text-decoration: underline;
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -708,7 +792,7 @@
 
     .footer-copy {
       font-size: 0.78rem;
-      color: rgba(245,240,232,0.35);
+      color: rgba(245, 240, 232, 0.35);
     }
 
     .footer-links {
@@ -718,70 +802,154 @@
 
     .footer-links a {
       font-size: 0.82rem;
-      color: rgba(245,240,232,0.5);
+      color: rgba(245, 240, 232, 0.5);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .hero-content > * {
+    .hero-content>* {
       animation: fadeUp 0.7s ease both;
     }
-    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
-    .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
-    .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
-    .hero-content > *:nth-child(4) { animation-delay: 0.35s; }
-    .hero-content > *:nth-child(5) { animation-delay: 0.4s; }
-    .hero-content > *:nth-child(6) { animation-delay: 0.5s; }
-    .hero-visual { animation: fadeUp 0.9s ease 0.4s both; }
+
+    .hero-content>*:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .hero-content>*:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .hero-content>*:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .hero-content>*:nth-child(4) {
+      animation-delay: 0.35s;
+    }
+
+    .hero-content>*:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    .hero-content>*:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+
+    .hero-visual {
+      animation: fadeUp 0.9s ease 0.4s both;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
+
       /* Nav */
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
+      nav {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
 
       /* Hero */
-      .hero { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .hero-content { padding: 48px 24px 56px; }
-      .hero-title { font-size: clamp(2.4rem, 8vw, 3.2rem); }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 48px 24px 56px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.4rem, 8vw, 3.2rem);
+      }
 
       /* Sections */
-      section { padding: 64px 24px; }
+      section {
+        padding: 64px 24px;
+      }
 
       /* Strengths */
-      .strength-intro { grid-template-columns: 1fr; gap: 36px; }
-      .pillars { grid-template-columns: 1fr; }
+      .strength-intro {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
 
       /* Services */
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
 
       /* Contact bar */
-      .contact-bar .section-inner { flex-direction: column; text-align: center; }
-      .contact-bar-details { flex-direction: column; gap: 20px; }
+      .contact-bar .section-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-bar-details {
+        flex-direction: column;
+        gap: 20px;
+      }
 
       /* Footer */
-      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
 
       /* Modal */
-      .modal { padding: 36px 28px; }
+      .modal {
+        padding: 36px 28px;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero-cta-group { flex-direction: column; align-items: flex-start; }
-      .services-grid { grid-template-columns: 1fr; }
-      .pillars { grid-template-columns: 1fr; }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- CONTACT MODAL -->
@@ -818,7 +986,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="index.html" class="nav-logo">שרית פיליפסון | עו"ד</a>
+    <a href="index.html" class="nav-logo">משרד עורכי דין שרית פיליפסון | פלילי-תעבורה-גישור</a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">ראשי</a></li>
       <li><a href="mailto:saritip1@gmail.com" class="nav-contact">צרו קשר</a></li>
@@ -838,11 +1006,12 @@
   <section class="hero">
     <div class="hero-lines"></div>
     <div class="hero-content">
-      <h1 class="hero-title">שרית<br /><span>פיליפסון</span></h1>
-      <p class="hero-subtitle">Sarit Philipson, Adv.</p>
+      <h1 class="hero-title">שרית<br /><span>פיליסון,עו״ד</span></h1>
+      <p class="hero-subtitle">Sarit Philipson Adv </p>
       <div class="hero-divider"></div>
       <p class="hero-bio">
-        ניצב משנה בדימוס, 27 שנות שרות בתפקידי פיקוד וניהול, 30 שנות ניסיון בעריכת דין, ליטיגציה , משפט פלילי ותעבורה, הכרות מעמיקה עם מערכת אכיפת החוק, ניהול משברים, אסטרטגיה ודוברות 
+        ניצב משנה בדימוס, 27 שנות שרות בתפקידי פיקוד וניהול, 30 שנות ניסיון בעריכת דין, ליטיגציה , משפט פלילי ותעבורה,
+        הכרות מעמיקה עם מערכת אכיפת החוק, ניהול משברים, אסטרטגיה ודוברות
       </p>
       <div class="hero-cta-group">
         <button class="btn-primary" onclick="openModal()">לפגישת ייעוץ</button>
@@ -850,16 +1019,6 @@
     </div>
     <div class="hero-visual">
       <div class="hero-cards">
-        <!-- Academic credentials box -->
-        <div class="info-box">
-          <span class="info-box-label">השכלה אקדמית</span>
-          <div class="info-box-title">שלושה תארים אקדמיים</div>
-          <ul class="info-box-list">
-            <li>LL.B ו-LL.M במשפטים, אוניברסיטת בר-אילן</li>
-            <li>M.P.A במדיניות ציבורית, האוניברסיטה העברית</li>
-            <li>מגשרת מוסמכת ומוסמכת דירקטורים</li>
-          </ul>
-        </div>
         <!-- 27 years police box -->
         <div class="info-box">
           <span class="info-box-label">ֿניסיון משטרתי</span>
@@ -867,57 +1026,60 @@
           <ul class="info-box-list">
             <li>ניצב משנה בדימוס</li>
             <li>ראש מחלקת תביעות תעבורהֿ</li>
-            <li>דוברת משטרה וקבילות שוטרים וסוהרים</li>
-            <li>מומחיות משפט תביעה וחקיקה דוברות ואסטרטגיה</li>
+            <li>דוברת משטרה</li>
+            <li>ק׳ קבילות שוטרים וסוהרים</li>
+            <li>מומחית בליטיגציה תביעה וחקיקה</li>
+            <li> ניהול משברים ואסטרטגיה תקשורתית של בכירים</li>
+          </ul>
+        </div>
+        <!-- Academic credentials box-->
+        <div class="info-box">
+          <span class="info-box-label">השכלה אקדמית</span>
+          <div class="info-box-title">30 שנות ניסיון במשפט</div>
+          <ul class="info-box-list">
+            <li>חברה בלשכת עורכי הדין משנת 1998</li>
+            <li>LL.B ו-LL.M במשפטים, אוניברסיטת בר-אילן</li>
+            <li>M.A במדיניות ציבורית, האוניברסיטה העברית</li>
+            <li>מגשרת מוסמכת</li>
+            <li>מוסמכת דירקטורים</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services">
-    <div class="section-inner">
-      <span class="section-tag">תחומי עיסוק</span>
-      <h2 class="section-title" style="color:var(--white);">שירותים <em style="color:var(--gold-muted)">משפטיים</em></h2>
-      <div class="section-line"></div>
-
-      <div class="strength-intro">
-        <div class="strength-intro-text">
-          30 שנה עורכת דין תואר ראשון ושני במשפטים ותואר שני במדיניות ציבורית מגשרת מוסמכת       
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <!-- STRENGTHS -->
   <section class="strengths">
     <div class="section-inner">
-      <span class="section-tag">היתרון שלי</span>
-      <h2 class="section-title">ניסיון — <em>מהשטח ועד לאולם בית המשפט</em></h2>
+      <h2 class="section-title" style="color:var(--gold-muted);">שירותים <em style="color:var(--gold-muted)">משפטיים</em>
+      <h2 class="section-title"><em>מהשטח ועד לאולם בית המשפט</em></h2>
       <div class="section-line"></div>
 
       <div class="strength-intro">
         <div class="strength-intro-text">
-          עורכת דין שרית פיליפסון - משרד בוטיק העוסק בייצוג בתיקים פליליים ותעבורתיים מורכבים כולל חקירות, שימועים וכתבי אישום עם ניסיון עשיר בליטיגציה וניהול תיקים אל מול התביעה מתוקף הניסוח הישר והרב שנצבר לאורך עשרות שנות שרות במשטרת ישראל בתפקידים מקצועיים ופיקודיים  וכראש מחלקת תביעות תעבורה. כמו כן המשרד עוסק בליווי וייצוג קצינים, שוטרים ואנשי כוחות הביטחון אל מול גופי חקירה תביעה ומשמעת.        </div>
+          משרד עו״ד שרית פיליפסון - משרד בוטיק העוסק בעיצוב תיקים פליליים ותעבורתיים מורכבים, כולל הכנה לחקירה, שימוע וכתבי אישום. ניסיון עשיר בליטיגציה וניהול תיקים אל מול התביעה מתוקף היכרות וצבירת ניסיון רב בתפקידים מובילים וכראש מחלקת תביעות תעבורה במשטרת ישראל. ליווי וייצוג קצינים שוטרים ואנשי כוחות הביטחון בהליכי חקירה במח״ש ,טביעה ומשמעת ניהול משברים והובלת אסטרטגיה תקשורתית בתיקים נבחרים.
+        </div>
         <blockquote class="strength-intro-quote">
-          ⁠לעורכת דין שרית פיליפסון ניסיון רב בתחום ניהול משברים ואסטרטגיה תקשורתית של בכירים בארגון.
+          שילוב מנצח : מקצועיות משפטית משטרתית וניהול משברים ואסטרטגיה תקשורתית
         </blockquote>
       </div>
     </div>
   </section>
 
-    <!-- I BELIVE -->
+  <!-- I BELIVE -->
   <section class="services">
     <div class="section-inner">
-      <h2 class="section-title" style="color:var(--white);">אני <em style="color:var(--gold-muted)">מאמינה</em></h2>
+      <h2 class="section-title" style="color:var(--white);"> ה<em style="color:var(--gold-muted)"> ״אני מאמין״ </em></h2>
       <div class="section-line"></div>
 
       <div class="strength-intro">
         <div class="strength-intro-text">
-          ״ הכרות מעמיקה עם מערכות אכיפת החוק בשילוב מקצועיות, יסודיות ומסירות = הדרך הבטוחה להצלחה ״ 
-          שנות הניסיון כניצב משנה בתפקידים פיקודיים ומקצועיים בכירים במשטרה מעניקים פרספקטיבה ייחודית, הבנת מנגנוני חקירה ותביע. והתמודדת נכונה ומדויקת עם תהליכי קבלת החלטות מבפנים״
+          <span class="highlight-text">
+            ״ הכרות מעמיקה עם מערכות אכיפת החוק, אסטרטגיה ודוברות, בשילוב מקצועיות, יסודיות ומסירות = הדרך הבטוחה להצלחה ״
+          </span>
+          <br><br>
+          שנות הניסיון כניצב משנה בתפקידים פיקודיים ומקצועיים בכירים במשטרה מעניקים פרספקטיבה ייחודית, הבנת מנגנוני
+          חקירה ותביעה, והתמודדות נכונה ומדויקת עם תהליכי קבלת החלטות מבפנים.
         </div>
       </div>
 
@@ -966,10 +1128,10 @@
       document.getElementById('contactModal').classList.remove('open');
       document.body.style.overflow = '';
     }
-    document.getElementById('contactModal').addEventListener('click', function(e) {
+    document.getElementById('contactModal').addEventListener('click', function (e) {
       if (e.target === this) closeModal();
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeModal();
     });
 
@@ -982,4 +1144,5 @@
   </script>
 
 </body>
+
 </html>
